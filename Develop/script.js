@@ -1,11 +1,18 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-var ansPasswordLength = prompt("How long do you want your password to be? You may chose a lenght of at Least 8 but no more than 128.");
+var ansPasswordLength = prompt("How long do you want your password to be? You may chose a length of at Least 8 but no more than 128.");
 var passwordLength = parseInt(ansPasswordLength);
  // var passwordMinLimit = 8
   // var passwordMaxLimit = 128
 var generatedPassword
 
+ 
+
+verifyPasswordLength(passwordLength);
+var password = generatePassword(password, passwordLength);
+
+  // var computerChoice = Math.floor(Math.random() * passwordLength) + 1;
+  // Verify the length of the password requested is between 8 and 128 characters
 function verifyPasswordLength(length){
   for (var i = 0; i < 3; i++ ){
     if (length < 8){
@@ -31,47 +38,50 @@ function generatePassword(password, pwLength){
   var alphabetLCOptions = ["a", "b", "c", "d","e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
   var alphabetUCOptions = ["A", "B", "C", "D","E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
   var numericOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-  var specialChars = ["!", "#", "$", "%", "&", "*", "+" , "-", "/", "<", "?", "@", "[", "|"];
+  var specialChars = ["!", "#", "$", "%", "&", "*", "+" , "-", "/", "<", "?", "@", "[", "|"]
+  var randomPassword
   
-    
-    
-
-    for ( i = 0; i <= length; i++ ){
-      if (ansSpecialChars === true && ansUCLetters === false && ansNumericChars === true ){
-        var passwordCharArray = [alphabetLCOptions, numericOptions, specialChars];
-        password = passwordCharArray[Math.floor(Math.random() * pwLength.length) + 1];
-        console.log(length);
-        console.log(password);
-      } else if(ansSpecialChars === false && ansUCLetters === true && ansNumericChars === true ){
-        var passwordCharArray = [alphabetLCOptions, alphabetUCOptions, numericOptions];
-        password = passwordCharArray[Math.floor(Math.random() * pwLength.length) + 1];
-        console.log(length);
-        console.log(password);
-      }else if(ansSpecialChars === true && ansUCLetters === true && ansNumericChars === false ){
-        var passwordCharArray = [alphabetLCOptions, alphabetUCOptions, specialChars];
-        password = passwordCharArray[Math.floor(Math.random() * pwLength.length) + 1];
-        console.log(length);
-        console.log(password);
-      }else{
-      var passwordCharArray = [alphabetLCOptions, alphabetUCOptions, numericOptions, specialChars];
-      password = passwordCharArray[Math.floor(Math.random() * pwLength.length) + 1];
-      console.log(length)
-      console.log(password)
+    if (ansSpecialChars === true && ansUCLetters === false && ansNumericChars === true ){
+      // var passwordCharArray = [alphabetLCOptions, numericOptions, specialChars];
+      for ( i = 0; i <= pwLength; i++ ){
+      // var randomPassword = randomPassword.concat(passwordCharArray[Math.floor(Math.random() * pwLength) + 1]);
+      randomPassword = randomPassword.concat(ansSpecialChars[Math.floor(Math.random() * pwLength) + 1]);
+      console.log(pwLength);
+      console.log(randomPassword);
+      randomPassword = randomPassword.concat(ansNumericChars[Math.floor(Math.random() * pwLength) + 1]);
+      console.log(pwLength);
+      console.log(randomPassword);
+      var randomPassword = randomPassword.concat(alphabetLCOptions[Math.floor(Math.random() * pwLength) + 1]);
+      console.log(pwLength);
+      conrandomPasswordsole.log(randomPassword);
+     } 
+    } else if(ansSpecialChars === false && ansUCLetters === true && ansNumericChars === true ){
+      var passwordCharArray = [alphabetLCOptions, alphabetUCOptions, numericOptions];
+      randomPassword = password.concat(passwordCharArray[Math.floor(Math.random() * pwLength) + 1]);
+      console.log(pwLength);
+      console.log(randomPassword);
+    }else if(ansSpecialChars === true && ansUCLetters === true && ansNumericChars === false ){
+      var passwordCharArray = [alphabetLCOptions, alphabetUCOptions, specialChars];
+      // password = password.concat(passwordCharArray[Math.floor(Math.random() * pwLength) + 1]);
+      randomPassword = passwordCharArray[Math.floor(Math.random() * pwLength) + 1];
+      console.log(pwLength);
+      console.log(randomPassword);
+    }else{
+    var passwordCharArray = [alphabetLCOptions, alphabetUCOptions, numericOptions, specialChars];
+    password = password.concat(passwordCharArray[Math.floor(Math.random() * pwLength) + 1]);
+    console.log(pwLength);
+    console.log(randomPassword);
     }
-    return password
-} 
-
-verifyPasswordLength(passwordLength);
-var password = generatePassword();
-
-  var computerChoice = Math.floor(Math.random() * passwordLength) + 1
-  
+    console.log(pwLength);
+    console.log(randomPassword);
+    return randomPassword;
+}
 
   
 // Write password to the #password input
-function writePassword() {
+// function writePassword() {
   
-  var passwordText = document.querySelector("#password");
+//   var passwordText = document.querySelector("#password");
   
  
   
@@ -80,11 +90,11 @@ function writePassword() {
   
   
   
-  // Verify the lenght of the password requested is between 8 and 128 characters
  
-  passwordText.value = password;
+ 
+//   passwordText.value = password;
 
-}
+// }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+// generateBtn.addEventListener("click", writePassword);
