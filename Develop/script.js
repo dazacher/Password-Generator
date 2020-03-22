@@ -18,13 +18,13 @@ function verifyPasswordLength(length){
       length = prompt("Please enter a password length between 8 and 128");
       length = parseInt(length) 
       console.log(length)
-      return length;
+      // return length;
     } 
     // If the initial entry was okay, parse it and return the value
     parseInt(length);
     console.log(length);
-    return length;
   } 
+  return length;
 };
 
 //Write password to the #password input
@@ -41,14 +41,14 @@ function writePassword(){
     var passwordMin = 8;
     var passwordMax = 128;
     // If the password has passed the lenght test ask what kind of characters they want in it
-    if ( passwordLength >= passwordMin && passwordLength <= passwordMax){
+    if ( passwordLength >= 8 && passwordLength <= 128){
       console.log("Inside min max if statement");
       console.log(passwordLength)
       // Ask user some questions about what kind of chars they want in their password
       var ansSpecialChars = confirm("Do you want Special Characters in your password?");
       var ansNumericChars = confirm("Do you want Numbers in your password?"); 
       var ansUCLetters = confirm("Do you want Upper Case Letters in your password?");
-    };
+    
     var lcSpecialNumericChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "!", "#", "$", "%", "&", "*", "+" , "-", "/", "<", "?", "@", "[", "|", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
     var lcNumericChars = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -105,6 +105,7 @@ function writePassword(){
       console.log(randomPassword);
       return randomPassword;
   }
+};
   // Generate the password
   var password = generatePassword();
   // Write password to the #password input
