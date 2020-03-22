@@ -81,23 +81,12 @@ function writePassword(){
       console.log(randomPassword);
       return randomPassword;
   }
-  
-  
-  
-    // Verify the length of the password requested is between 8 and 128 characters
-  
-   
   var password = generatePassword();
-  var passwordText = document.querySelector("password");
+  // Write password to the #password input
+  var passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 }
 
-
-
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-
-
